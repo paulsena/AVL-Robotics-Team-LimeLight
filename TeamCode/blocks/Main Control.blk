@@ -1,0 +1,2138 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+<variables>
+<variable id="]WT(;p^GJtqQ?wTfyjI~">Denominator</variable>
+<variable id="G_eqR?usvv9yGYoqZDi2">shoulderPosition</variable>
+<variable id="c^tUZlt==3GrXs.q;1an">moveSpeed</variable>
+<variable id="wgBz75Q;NoAU8oGhST]H">shoulderSpeed</variable>
+<variable id="{HJ;`R[:z%|/#2`BEGoO">elbowPosition</variable>
+<variable id="jxSI9fur/Ia5EDEB_LvB">moveSprintSpeed</variable>
+<variable id="=FAqY`p~.-v3.UiD7p=+">isInPickupPose</variable>
+<variable id="$Nx0[VUV%@r/_@t~t1p;">forward</variable>
+<variable id="]MWOVS{2#BEP|aoEoh^8">elbowSpeed</variable>
+<variable id="~}fspl}+613^)C+2hJt$">isInGoalPose</variable>
+<variable id="x%Q7R/U)U(=sO}:tEUwn">turn</variable>
+<variable id="D9P1)%J9@[v%=[ex*qcK">SpeedModifier</variable>
+<variable id="Kx8*Z:;|O{!l;+m[R]n`">strafe</variable>
+<variable id="_qC}8y+Eg@~`Fms}%%N8">gripperLeftOpenPosition</variable>
+<variable id="0,OP)0Gb[;Nb1n,sNC5X">droneLoadPosition</variable>
+<variable id="7e*6(NqDm|$Js:4XVxu*">gripperRightOpenPosition</variable>
+<variable id="x{n]SILE=_w)LBGE02nl">gripperLeftClosedPosition</variable>
+<variable id=")v2?LS^yk:^:z=#h*vOV">elbowStartingPosition</variable>
+<variable id="qayR1k9CylcEWlRrLw8,">gripperRightClosedPosition</variable>
+<variable id="An{1o.3c{5O(l^A7%=GE">elbowFloorPositionOffset</variable>
+<variable id="Ny!=tp;79w/mZ8rNSPX]">gripperWristFlatPosition</variable>
+<variable id="?**n|b3qDdG9P~DHqw=S">gripperWristPickupPosition</variable>
+<variable id="U;EZ0d+Da$v9q*ebWOUr">shoulderStartingPosition</variable>
+<variable id="S[NPdn@B6.8VFg31%||Y">elbowGoalPositionOffset</variable>
+<variable id="8VE_=e9(xNN}z0_+Mlrp">gripperWristGoalPosition</variable>
+<variable id="^83|zUmuX:cG3hOX=|Z1">shoulderGoalPositionOffset</variable>
+<variable id="+ZB$1*#UYT+tOG-e1(Vw">droneLaunchPosition</variable>
+</variables>
+<block type="procedures_defnoreturn" id="08mBwX:TI+{Y8JY_.^P@" x="2256" y="-748">
+<field name="NAME">UpdateTelemetry</field>
+<comment pinned="false" h="80" w="160">Describe this function...</comment>
+<statement name="STACK">
+<block type="telemetry_addNumericData_Number" id="MHLRBz;1lx3p~kk4~0`(">
+<value name="KEY">
+<shadow type="text" id="?DmC{)JRXMdxr0?g,?;#">
+<field name="TEXT">Shoulder</field>
+</shadow>
+</value>
+<value name="NUMBER">
+<shadow type="math_number">
+<field name="NUM">123</field>
+</shadow>
+<block type="variables_get" id="Y*`#0hg9|g(;Q?LRlxPT">
+<field name="VAR" id="G_eqR?usvv9yGYoqZDi2">shoulderPosition</field>
+</block>
+</value>
+<next>
+<block type="telemetry_addNumericData_Number" id="/tNd{80zMJtmV4jSs[[a">
+<value name="KEY">
+<shadow type="text" id="Dj6=ou2=)!Q_m]5^2Yhy">
+<field name="TEXT">Elbow Position</field>
+</shadow>
+</value>
+<value name="NUMBER">
+<shadow type="math_number" id="UCO7z,mlU+C/,/h1Vo=Q">
+<field name="NUM">123</field>
+</shadow>
+<block type="variables_get" id="p2Lh=ZrwQ0@%`=,-sIC@">
+<field name="VAR" id="{HJ;`R[:z%|/#2`BEGoO">elbowPosition</field>
+</block>
+</value>
+<next>
+<block type="telemetry_addNumericData_Number" id=",JQbRahs0@.HjL:#G5rG">
+<value name="KEY">
+<shadow type="text" id="P8u#cu.sFr$tqW1`0NYt">
+<field name="TEXT">Gripper Wrist Position</field>
+</shadow>
+</value>
+<value name="NUMBER">
+<shadow type="math_number" id="$nre~wCryPDc|_wc?UuI">
+<field name="NUM">123</field>
+</shadow>
+<block type="misc_roundDecimal" id="BXIQ)}A`AH4U]AhTBr1.">
+<value name="NUMBER">
+<shadow type="math_number">
+<field name="NUM">3.14159265</field>
+</shadow>
+<block type="servo_getProperty_Number" id=":QDR0faK2nb}Ym_At~p_">
+<field name="IDENTIFIER">gripRotateAsServo</field>
+<field name="PROP">Position</field>
+<data>{"IDENTIFIER":"gripRotate"}</data>
+</block>
+</value>
+<value name="PRECISION">
+<shadow type="math_number" id="s,ix?qw`q,KUl7l7I?3a">
+<field name="NUM">2</field>
+</shadow>
+</value>
+</block>
+</value>
+<next>
+<block type="telemetry_addNumericData_Number" id="~n`B!h+p9Rf%y]@5EJ?8">
+<value name="KEY">
+<shadow type="text" id="Y9!@j[4T=]](U*RfukMv">
+<field name="TEXT">Gripper Left Position</field>
+</shadow>
+</value>
+<value name="NUMBER">
+<shadow type="math_number" id=",z-(uL.*yLX2]{LPm_`-">
+<field name="NUM">123</field>
+</shadow>
+<block type="misc_roundDecimal" id="urg.#SR3*|UtiFaGJs~Y">
+<value name="NUMBER">
+<shadow type="math_number">
+<field name="NUM">3.14159265</field>
+</shadow>
+<block type="servo_getProperty_Number" id="G%;%j|%tn(D_PhQ5$DQZ">
+<field name="IDENTIFIER">gripAsServo</field>
+<field name="PROP">Position</field>
+<data>{"IDENTIFIER":"grip"}</data>
+</block>
+</value>
+<value name="PRECISION">
+<shadow type="math_number" id="[[GH%X@)mj`#mFdlmVbN">
+<field name="NUM">2</field>
+</shadow>
+</value>
+</block>
+</value>
+<next>
+<block type="telemetry_addNumericData_Number" id="!A|SY0NvtR~1K0-Z9=^f">
+<value name="KEY">
+<shadow type="text" id="r43=/mqO{?kdT!h67b3?">
+<field name="TEXT">Gripper Right Position</field>
+</shadow>
+</value>
+<value name="NUMBER">
+<shadow type="math_number" id="r{7fyRkC|aa[Qp3!/J8,">
+<field name="NUM">123</field>
+</shadow>
+<block type="misc_roundDecimal" id="6xG5WhC0t.eyuNB`)_sA">
+<value name="NUMBER">
+<shadow type="math_number" id="x7:DP9~w/jKy+PndsanB">
+<field name="NUM">3.14159265</field>
+</shadow>
+<block type="servo_getProperty_Number" id="ydxIB@X^(X(849.ut1{j">
+<field name="IDENTIFIER">grip2AsServo</field>
+<field name="PROP">Position</field>
+<data>{"IDENTIFIER":"grip2"}</data>
+</block>
+</value>
+<value name="PRECISION">
+<shadow type="math_number" id="M7u+^O3!g@+;)u8O@(,j">
+<field name="NUM">2</field>
+</shadow>
+</value>
+</block>
+</value>
+<next>
+<block type="telemetry_update" id="OU3*+^e7%JxUW,S}-akC"/>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+<block type="procedures_defnoreturn" id="#:R@~v1OJbBk{nWX,kNm" x="1514" y="-573">
+<field name="NAME">Initialize Motors</field>
+<comment pinned="false" h="80" w="160">Initialize variables</comment>
+<data>{"commentPositionLeft":-190,"commentPositionTop":-20}</data>
+<statement name="STACK">
+<block type="dcMotor_setProperty_Direction" id="S]06rkoz1Zamfa[FgdN@">
+<field name="IDENTIFIER">leftRearAsDcMotor</field>
+<field name="PROP">Direction</field>
+<data>{"IDENTIFIER":"leftRear"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_direction" id="*a~X!7uNa!,O+ixlBMS+">
+<field name="DIRECTION">REVERSE</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Direction" id="a{-BX9LF^+%Zq9zg8ePR">
+<field name="IDENTIFIER">rightFrontAsDcMotor</field>
+<field name="PROP">Direction</field>
+<data>{"IDENTIFIER":"rightFront"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_direction" id="C,4%(A$ywYz$iVpx!l*D">
+<field name="DIRECTION">REVERSE</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="LCk^$2RBK@E}|Hb/1Klh">
+<field name="IDENTIFIER">armElbowAsDcMotor</field>
+<field name="PROP">TargetPosition</field>
+<data>{"IDENTIFIER":"armElbow"}</data>
+<value name="VALUE">
+<shadow type="math_number">
+<field name="NUM">0</field>
+</shadow>
+<block type="variables_get" id="24;f@jA56XQ6[Gj3!sS*">
+<field name="VAR" id="{HJ;`R[:z%|/#2`BEGoO">elbowPosition</field>
+</block>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="lSc9l8QYbF7z_A[60A4s">
+<field name="IDENTIFIER">armShoulderAsDcMotor</field>
+<field name="PROP">TargetPosition</field>
+<data>{"IDENTIFIER":"armShoulder"}</data>
+<value name="VALUE">
+<shadow type="math_number">
+<field name="NUM">0</field>
+</shadow>
+<block type="variables_get" id="]g?kn;o6_+,ldWjQ/kL2">
+<field name="VAR" id="G_eqR?usvv9yGYoqZDi2">shoulderPosition</field>
+</block>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_RunMode" id="R*s+O[-A}^=wr|Cc*7oH">
+<field name="PROP">Mode</field>
+<field name="IDENTIFIER1">armElbowAsDcMotor</field>
+<field name="IDENTIFIER2">armShoulderAsDcMotor</field>
+<data>{"IDENTIFIER1":"armElbow","IDENTIFIER2":"armShoulder"}</data>
+<value name="VALUE1">
+<shadow type="dcMotor_typedEnum_runMode" id="|XySjz95*.w|hIV24C^U">
+<field name="RUN_MODE">RUN_TO_POSITION</field>
+</shadow>
+</value>
+<value name="VALUE2">
+<shadow type="dcMotor_typedEnum_runMode" id="bLdAUfz^|PB!b,1LaH{|">
+<field name="RUN_MODE">RUN_TO_POSITION</field>
+</shadow>
+</value>
+<next>
+<block type="servo_setProperty_Number" id="AD-S5-P8u5(8Q1Jl`NCI">
+<field name="IDENTIFIER">droneLaunchAsServo</field>
+<field name="PROP">Position</field>
+<data>{"IDENTIFIER":"droneLaunch"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="FZ/7X@_BOQ+UQfP_|5Vy">
+<field name="NUM">0</field>
+</shadow>
+<block type="variables_get" id="o*[n,+H+wZoO1w@MUI[6">
+<field name="VAR" id="0,OP)0Gb[;Nb1n,sNC5X">droneLoadPosition</field>
+</block>
+</value>
+<next>
+<block type="servo_setProperty_Number" id="(*A~36Na(u5Zmh4l__t2">
+<field name="IDENTIFIER">gripAsServo</field>
+<field name="PROP">Position</field>
+<data>{"IDENTIFIER":"grip"}</data>
+<value name="VALUE">
+<shadow type="math_number">
+<field name="NUM">0</field>
+</shadow>
+<block type="variables_get" id="=u{Ga{LQ0Qd`eLLjHduj">
+<field name="VAR" id="x{n]SILE=_w)LBGE02nl">gripperLeftClosedPosition</field>
+</block>
+</value>
+<next>
+<block type="servo_setProperty_Number" id="I=v#;5/I[*mP?qRaKRCD">
+<field name="IDENTIFIER">grip2AsServo</field>
+<field name="PROP">Position</field>
+<data>{"IDENTIFIER":"grip2"}</data>
+<value name="VALUE">
+<shadow type="math_number">
+<field name="NUM">0</field>
+</shadow>
+<block type="variables_get" id="(weeVIHP/y7}FE8}IS8u">
+<field name="VAR" id="qayR1k9CylcEWlRrLw8,">gripperRightClosedPosition</field>
+</block>
+</value>
+<next>
+<block type="servo_setProperty_Number" id="6;0k*:$!jvgoT,A$fumD">
+<field name="IDENTIFIER">gripRotateAsServo</field>
+<field name="PROP">Position</field>
+<data>{"IDENTIFIER":"gripRotate"}</data>
+<value name="VALUE">
+<shadow type="math_number">
+<field name="NUM">0</field>
+</shadow>
+<block type="variables_get" id="@UIaiyAVi)eZ^y!JnWrw">
+<field name="VAR" id="Ny!=tp;79w/mZ8rNSPX]">gripperWristFlatPosition</field>
+</block>
+</value>
+<next>
+<block type="servo_setProperty_Number" id="bGPzt*c+9S~#.8htP_Fd">
+<field name="IDENTIFIER">droneLaunchAsServo</field>
+<field name="PROP">Position</field>
+<data>{"IDENTIFIER":"droneLaunch"}</data>
+<value name="VALUE">
+<shadow type="math_number">
+<field name="NUM">0</field>
+</shadow>
+<block type="variables_get" id="e`u@2JAHy)Oiv_0Jy93p">
+<field name="VAR" id="0,OP)0Gb[;Nb1n,sNC5X">droneLoadPosition</field>
+</block>
+</value>
+<next>
+<block type="telemetry_speak" id="CpkRP.T||w!X=:W;7d9S">
+<value name="TEXT">
+<shadow type="text" id="d$62vxKKXSE$tj**|[q#">
+<field name="TEXT">I'm ready</field>
+</shadow>
+</value>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+<block type="procedures_defnoreturn" id="WtpyD@tEu+EoY=P9iY,D" deletable="false" x="829" y="-310">
+<field name="NAME">runOpMode</field>
+<comment pinned="false" h="45" w="532">This function is executed when this OpMode is selected from the Driver Station.</comment>
+<statement name="STACK">
+<block type="comment" id="~M~6e`T7D:hQO%[JPLDd">
+<field name="COMMENT">Initialize our variables</field>
+<next>
+<block type="variables_set" id="B.#``5v]-d]6s5)/UcrG">
+<field name="VAR" id="c^tUZlt==3GrXs.q;1an">moveSpeed</field>
+<value name="VALUE">
+<block type="math_number" id="bVL}+_Lgz[mjv|,W/A#.">
+<field name="NUM">0.6</field>
+</block>
+</value>
+<next>
+<block type="variables_set" id="qzt?c`FG;Eb!^[Kgwe0q">
+<field name="VAR" id="jxSI9fur/Ia5EDEB_LvB">moveSprintSpeed</field>
+<value name="VALUE">
+<block type="math_number" id="^D(VhlU*QPJMRnl%!gP:">
+<field name="NUM">1</field>
+</block>
+</value>
+<next>
+<block type="variables_set" id="tZ..v{F1=R3jWtSC.,u6">
+<field name="VAR" id="]MWOVS{2#BEP|aoEoh^8">elbowSpeed</field>
+<value name="VALUE">
+<block type="math_number" id="fHi*qE@+J)jnQ4YpQ7u3">
+<field name="NUM">0.3</field>
+</block>
+</value>
+<next>
+<block type="variables_set" id="NcMxl;1#MoeU@rm3S`y?">
+<field name="VAR" id="wgBz75Q;NoAU8oGhST]H">shoulderSpeed</field>
+<value name="VALUE">
+<block type="math_number" id="r|[Eop87ZV@6xAkU@?#s">
+<field name="NUM">0.9</field>
+</block>
+</value>
+<next>
+<block type="variables_set" id="/rl3GJ!S$S!6W5/ij|$]">
+<field name="VAR" id="_qC}8y+Eg@~`Fms}%%N8">gripperLeftOpenPosition</field>
+<value name="VALUE">
+<block type="math_number" id="geYH9R:p-U*dJag3N5WL">
+<field name="NUM">0.4</field>
+</block>
+</value>
+<next>
+<block type="variables_set" id="+3r/LfK?zqXbb@#559@0">
+<field name="VAR" id="7e*6(NqDm|$Js:4XVxu*">gripperRightOpenPosition</field>
+<value name="VALUE">
+<block type="math_number" id="em*w+qQ8W8IK:tr~3hLU">
+<field name="NUM">0.4</field>
+</block>
+</value>
+<next>
+<block type="variables_set" id="FmbO5ZKJ:5#*p$)UC20b">
+<field name="VAR" id="x{n]SILE=_w)LBGE02nl">gripperLeftClosedPosition</field>
+<value name="VALUE">
+<block type="math_number" id="t5kB_TRt-aXW-veRDlvc">
+<field name="NUM">0.1</field>
+</block>
+</value>
+<next>
+<block type="variables_set" id="I{yCbCefpba=BUj|~%R2">
+<field name="VAR" id="qayR1k9CylcEWlRrLw8,">gripperRightClosedPosition</field>
+<value name="VALUE">
+<block type="math_number" id="DV#cZurXcL~)0l)%o/iv">
+<field name="NUM">0.1</field>
+</block>
+</value>
+<next>
+<block type="variables_set" id="0%+mj)Q3csQa:TalX*A;">
+<field name="VAR" id="?**n|b3qDdG9P~DHqw=S">gripperWristPickupPosition</field>
+<value name="VALUE">
+<block type="math_number" id="/pS.R:o/Xe![-PKW,,yz">
+<field name="NUM">0.6</field>
+</block>
+</value>
+<next>
+<block type="variables_set" id="%vnMid`FN5|GY7dH.zgV">
+<field name="VAR" id="8VE_=e9(xNN}z0_+Mlrp">gripperWristGoalPosition</field>
+<value name="VALUE">
+<block type="math_number" id="y]7gn;9T?AX68LjojD}V">
+<field name="NUM">0.35</field>
+</block>
+</value>
+<next>
+<block type="variables_set" id="}i!8xJg[wvKPNN,la,8h">
+<field name="VAR" id="Ny!=tp;79w/mZ8rNSPX]">gripperWristFlatPosition</field>
+<value name="VALUE">
+<block type="math_number" id="sT3RuRru|(gc?(=I-tD+">
+<field name="NUM">0.55</field>
+</block>
+</value>
+<next>
+<block type="variables_set" id="xf0Ppo6C$P{cbXenZ82l">
+<field name="VAR" id="0,OP)0Gb[;Nb1n,sNC5X">droneLoadPosition</field>
+<value name="VALUE">
+<block type="math_number" id="7Q9t]_~lyzwR)0uO2-a;">
+<field name="NUM">0.1</field>
+</block>
+</value>
+<next>
+<block type="variables_set" id="([MKAqAvf];lij?A.HL?">
+<field name="VAR" id="+ZB$1*#UYT+tOG-e1(Vw">droneLaunchPosition</field>
+<value name="VALUE">
+<block type="math_number" id="[W,O+;$A$bOo.o(sRB?5">
+<field name="NUM">0.5</field>
+</block>
+</value>
+<next>
+<block type="comment" id="e]sSfUZ#RN^`j#`M@TF0">
+<field name="COMMENT">This is the relative offset from starting to floor position</field>
+<next>
+<block type="variables_set" id="GUv=P2,0o~{c^ApqnPiT">
+<field name="VAR" id="An{1o.3c{5O(l^A7%=GE">elbowFloorPositionOffset</field>
+<value name="VALUE">
+<block type="math_number" id="`INfYOO5u5y*JtXR70T`">
+<field name="NUM">-920</field>
+</block>
+</value>
+<next>
+<block type="comment" id="ZKW_yqAf?6.G31i8Ur~D">
+<field name="COMMENT">This is the relative offset from starting to goal position</field>
+<next>
+<block type="variables_set" id="uKbE,+bA/IgwE3#/%?RV">
+<field name="VAR" id="S[NPdn@B6.8VFg31%||Y">elbowGoalPositionOffset</field>
+<value name="VALUE">
+<block type="math_number" id="-(zp8PJ@Gc%NT2jO{i@=">
+<field name="NUM">256</field>
+</block>
+</value>
+<next>
+<block type="variables_set" id="$3P!=N[~*TEfHoC4_cUa">
+<field name="VAR" id="^83|zUmuX:cG3hOX=|Z1">shoulderGoalPositionOffset</field>
+<value name="VALUE">
+<block type="math_number" id="tf:AW{iw%#7cx/`/`3+J">
+<field name="NUM">-2089</field>
+</block>
+</value>
+<next>
+<block type="comment" id="${t%~)_t.qn5kPBhownW">
+<field name="COMMENT">Sets up arm starting positions based on current rest state</field>
+<next>
+<block type="variables_set" id="wno$_D|I=@d$%=D:Q=z|">
+<field name="VAR" id=")v2?LS^yk:^:z=#h*vOV">elbowStartingPosition</field>
+<value name="VALUE">
+<block type="dcMotor_getProperty_Number" id="Gj#aT$H.|={Lrm9:;mx9">
+<field name="IDENTIFIER">armElbowAsDcMotor</field>
+<field name="PROP">CurrentPosition</field>
+<data>{"IDENTIFIER":"armElbow"}</data>
+</block>
+</value>
+<next>
+<block type="variables_set" id="]J[l:;P$DkETz@N(2@!F">
+<field name="VAR" id="U;EZ0d+Da$v9q*ebWOUr">shoulderStartingPosition</field>
+<value name="VALUE">
+<block type="dcMotor_getProperty_Number" id="P8!?J3cs,*xMl5.=z)U7">
+<field name="IDENTIFIER">armShoulderAsDcMotor</field>
+<field name="PROP">CurrentPosition</field>
+<data>{"IDENTIFIER":"armShoulder"}</data>
+</block>
+</value>
+<next>
+<block type="variables_set" id="oa-iy$#PL+fd6)BzXR2G">
+<field name="VAR" id="{HJ;`R[:z%|/#2`BEGoO">elbowPosition</field>
+<value name="VALUE">
+<block type="variables_get" id="{C74icfcguuWnkhQ0rjo">
+<field name="VAR" id=")v2?LS^yk:^:z=#h*vOV">elbowStartingPosition</field>
+</block>
+</value>
+<next>
+<block type="variables_set" id="2.%]t*d20SlQ@,x35lxG">
+<field name="VAR" id="G_eqR?usvv9yGYoqZDi2">shoulderPosition</field>
+<value name="VALUE">
+<block type="variables_get" id="XZcXr6Oe]%7Dg^9ZgB.r">
+<field name="VAR" id="U;EZ0d+Da$v9q*ebWOUr">shoulderStartingPosition</field>
+</block>
+</value>
+<next>
+<block type="comment" id="|n)?sU%|1tQ:T,u`y,UN">
+<field name="COMMENT">Maximum range of arm for a limiter so we don't over extend</field>
+<next>
+<block type="procedures_callnoreturn" id="h0F*vP?{zrn7{QAL1A,;">
+<mutation name="Initialize Motors"/>
+<next>
+<block type="linearOpMode_waitForStart" id=":`$wN_ci`O;o6P0~.(+g">
+<next>
+<block type="controls_if" id="}Q?5mbxSO8Di;i!__6[y">
+<value name="IF0">
+<block type="linearOpMode_opModeIsActive" id=")o%YFX/#9kvv^sgXr4~5"/>
+</value>
+<statement name="DO0">
+<block type="comment" id="(rU-p_T_/B|vExcs}liL">
+<field name="COMMENT">Put run blocks here.</field>
+<next>
+<block type="controls_whileUntil" id="^0Kagy/e+Ea{rbZPv2G6">
+<field name="MODE">WHILE</field>
+<value name="BOOL">
+<block type="linearOpMode_opModeIsActive" id="e)cr{!2VIET83s,JWC.="/>
+</value>
+<statement name="DO">
+<block type="procedures_callnoreturn" id="4iFI~!ea%?uvd@;B#ToG">
+<mutation name="ControllerMappings"/>
+<next>
+<block type="procedures_callnoreturn" id="n`W0bq`|=pdEDJeM5ja:">
+<mutation name="DriveControl"/>
+<next>
+<block type="procedures_callnoreturn" id="?Sy0FNxAmrI)@9q5|^,#">
+<mutation name="ArmControl"/>
+<next>
+<block type="procedures_callnoreturn" id="}FmAh(z7o]*a5VwWoSB-">
+<mutation name="PresetPoses"/>
+<next>
+<block type="procedures_callnoreturn" id="2HM#:|vE@^Rj1p96|X;@">
+<mutation name="UpdateTelemetry"/>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+<block type="procedures_defnoreturn" id="9qvRT`k8S@T./0]XXQjm" x="1524" y="-76">
+<field name="NAME">DriveControl</field>
+<comment pinned="false" h="80" w="160">Describe this function...</comment>
+<statement name="STACK">
+<block type="variables_set" id="gSfm[a7tYrU:2-Vi,k;E">
+<field name="VAR" id="]WT(;p^GJtqQ?wTfyjI~">Denominator</field>
+<value name="VALUE">
+<block type="math_on_list" id="4[5ip^yOe;-z=z1J79E+">
+<mutation op="MAX"/>
+<field name="OP">MAX</field>
+<value name="LIST">
+<block type="lists_create_with" id="xKr,Q*!yaBJZh!FC^0A(">
+<mutation items="2"/>
+<value name="ADD0">
+<block type="math_on_list" id="M:[KjhQ%/14@^^%L!Ur.">
+<mutation op="SUM"/>
+<field name="OP">SUM</field>
+<value name="LIST">
+<block type="lists_create_with" id="r9-j$ugRKP/G`cIX(V9b">
+<mutation items="3"/>
+<value name="ADD0">
+<block type="math_single" id="zC9hA6CgxqyzoTsbQ0sJ">
+<field name="OP">ABS</field>
+<value name="NUM">
+<shadow type="math_number">
+<field name="NUM">9</field>
+</shadow>
+<block type="variables_get" id="/+E$Zf`c,|E]E^_SA-E0">
+<field name="VAR" id="$Nx0[VUV%@r/_@t~t1p;">forward</field>
+</block>
+</value>
+</block>
+</value>
+<value name="ADD1">
+<block type="math_single" id="D6=g#cHGdtcgq;*;H8mD">
+<field name="OP">ABS</field>
+<value name="NUM">
+<shadow type="math_number">
+<field name="NUM">9</field>
+</shadow>
+<block type="variables_get" id="sh9Sr:Ox/l3@2?Dxz3!h">
+<field name="VAR" id="Kx8*Z:;|O{!l;+m[R]n`">strafe</field>
+</block>
+</value>
+</block>
+</value>
+<value name="ADD2">
+<block type="math_single" id="}i8q8Pm7tO/|-^`q7T;f">
+<field name="OP">ABS</field>
+<value name="NUM">
+<shadow type="math_number">
+<field name="NUM">9</field>
+</shadow>
+<block type="variables_get" id="Bnlt8;uATdL5iI~WSBjK">
+<field name="VAR" id="x%Q7R/U)U(=sO}:tEUwn">turn</field>
+</block>
+</value>
+</block>
+</value>
+</block>
+</value>
+</block>
+</value>
+<value name="ADD1">
+<block type="math_number" id="k8-ZL,{R*`$vNbSGo]]x">
+<field name="NUM">1</field>
+</block>
+</value>
+</block>
+</value>
+</block>
+</value>
+<next>
+<block type="controls_if" id="H!Ur.is/2PnG`gGm^q?%">
+<value name="IF0">
+<block type="variables_get" id="Ca$4%n$s+sS~(,Da]a{D">
+<field name="VAR" id="=FAqY`p~.-v3.UiD7p=+">isInPickupPose</field>
+</block>
+</value>
+<statement name="DO0">
+<block type="comment" id="d}^)bX!k.TXW9i;{0Y;I">
+<field name="COMMENT">Slow down driving when arm is in pickup pose</field>
+<next>
+<block type="controls_if" id="s^vkFi[oNVi#$0S_2LA!">
+<mutation else="1"/>
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id=":TL(4R{pq+!5Vc@DNe4Z">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">RightBumper</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="variables_set" id="sFQkM2q=c#ebQ6W/P=E6">
+<field name="VAR" id="D9P1)%J9@[v%=[ex*qcK">SpeedModifier</field>
+<value name="VALUE">
+<block type="math_number" id="G!_Zw^[yqPc|Xhd{#dFk">
+<field name="NUM">0.5</field>
+</block>
+</value>
+</block>
+</statement>
+<statement name="ELSE">
+<block type="variables_set" id="`${!eXhb7Yx!IZWi|4O=">
+<field name="VAR" id="D9P1)%J9@[v%=[ex*qcK">SpeedModifier</field>
+<value name="VALUE">
+<block type="math_number" id="u|_.Fb{PQHgk=z@z2Ge.">
+<field name="NUM">0.3</field>
+</block>
+</value>
+</block>
+</statement>
+<next>
+<block type="comment" id="xOduh=q/Vp5/JnO{~TXQ">
+<field name="COMMENT">Reverse so back is front when we are in pickup pixel pose </field>
+<next>
+<block type="variables_set" id="Pa-Y,@iIsAr0O[l-Y1W%">
+<field name="VAR" id="$Nx0[VUV%@r/_@t~t1p;">forward</field>
+<value name="VALUE">
+<block type="math_single" id="6C1zl4KpbQ4c.bD(.mG7">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number" id="p810]7flu5=cc@P2edk0">
+<field name="NUM">9</field>
+</shadow>
+<block type="variables_get" id="[7!sN`qQ=u=65`(.c-uQ">
+<field name="VAR" id="$Nx0[VUV%@r/_@t~t1p;">forward</field>
+</block>
+</value>
+</block>
+</value>
+<next>
+<block type="variables_set" id="?)4V:uU9#l+$(,$3L%k/">
+<field name="VAR" id="Kx8*Z:;|O{!l;+m[R]n`">strafe</field>
+<value name="VALUE">
+<block type="math_single" id="cK`?jr5I2VvnB!4Jmp5w">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number">
+<field name="NUM">9</field>
+</shadow>
+<block type="variables_get" id="oLTk$bNgV0xadv0CCEE5">
+<field name="VAR" id="Kx8*Z:;|O{!l;+m[R]n`">strafe</field>
+</block>
+</value>
+</block>
+</value>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+<next>
+<block type="controls_if" id="#iIad}Lx.CcLo5be{!Rr">
+<value name="IF0">
+<block type="variables_get" id="Z{bG;qJ-5|xG#~M:=zmQ">
+<field name="VAR" id="~}fspl}+613^)C+2hJt$">isInGoalPose</field>
+</block>
+</value>
+<statement name="DO0">
+<block type="comment" id="tEg]Vt_62|8*SoiH$Va/">
+<field name="COMMENT">Slow down driving when arm is in goal pose</field>
+<next>
+<block type="controls_if" id="t47xV|1a#iHMh-(rFCjK">
+<mutation else="1"/>
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id="93fP,UX.`KQ%pRHCCC0S">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">RightBumper</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="variables_set" id="T%r;1_;qHtx=0rHKJ/Se">
+<field name="VAR" id="D9P1)%J9@[v%=[ex*qcK">SpeedModifier</field>
+<value name="VALUE">
+<block type="math_number" id=":oNv_3xtgRwIZg9eu|rc">
+<field name="NUM">0.45</field>
+</block>
+</value>
+</block>
+</statement>
+<statement name="ELSE">
+<block type="variables_set" id="fU{?7S+h`40:1!@6XjWO">
+<field name="VAR" id="D9P1)%J9@[v%=[ex*qcK">SpeedModifier</field>
+<value name="VALUE">
+<block type="math_number" id="rU{A@NBS:lNR[zG/#Vxm">
+<field name="NUM">0.3</field>
+</block>
+</value>
+</block>
+</statement>
+</block>
+</next>
+</block>
+</statement>
+<next>
+<block type="dcMotor_setDualProperty_Number" id="xu.sVf|IA8yY}FwP:#MO">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">leftRearAsDcMotor</field>
+<field name="IDENTIFIER2">leftFrontAsDcMotor</field>
+<data>{"IDENTIFIER1":"leftRear","IDENTIFIER2":"leftFront"}</data>
+<value name="VALUE1">
+<shadow type="math_number" id="9ikUqXl6fwCldYU|KN$t">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_arithmetic" id="s~*a0:@fZNk*:ujD73U5">
+<field name="OP">MULTIPLY</field>
+<value name="A">
+<shadow type="math_number" id="cRM!hBa;[h}+0i~H=Bw0">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_arithmetic" id="~}fvz[vczzUYp;]$ccY?">
+<field name="OP">DIVIDE</field>
+<value name="A">
+<shadow type="math_number" id="F^gL(P!$7tLt9Sr1?]Q?">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_arithmetic" id=":-?p~d{-8WNI2V/K[Nkn">
+<field name="OP">MINUS</field>
+<value name="A">
+<shadow type="math_number" id="^PWWw[zF9B5m8h:mJnVc">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="j.mH*OkR*7vg1.xGCQff">
+<field name="VAR" id="$Nx0[VUV%@r/_@t~t1p;">forward</field>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number" id="A4N3!9h_p1~(vHj=(h/5">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_arithmetic" id="X:dhEVF`TDNFCADpEzjm">
+<field name="OP">MINUS</field>
+<value name="A">
+<shadow type="math_number" id="f9ke_X])k)N`^E:@(tl2">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="Ls{R|L?c/?iFcf{.d5uf">
+<field name="VAR" id="Kx8*Z:;|O{!l;+m[R]n`">strafe</field>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="+HqX/CIWfv6|tK5kgUg4">
+<field name="VAR" id="x%Q7R/U)U(=sO}:tEUwn">turn</field>
+</block>
+</value>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id=".~|f2pOfg|YIGNK!`{`e">
+<field name="VAR" id="]WT(;p^GJtqQ?wTfyjI~">Denominator</field>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="3Pp;3T)R;`+@J7RfI+EM">
+<field name="VAR" id="D9P1)%J9@[v%=[ex*qcK">SpeedModifier</field>
+</block>
+</value>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number" id="hxgCV7bCB0E%u$^Le`%^">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_arithmetic" id="t.n;^w$nZaWV{6n~|U|,">
+<field name="OP">MULTIPLY</field>
+<value name="A">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_arithmetic" id="T;;ZG;8rVIknjjr#vmMq">
+<field name="OP">DIVIDE</field>
+<value name="A">
+<shadow type="math_number" id="APF1x_~ME;5,9L_lgTM#">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_arithmetic" id="D{F#J,eGkE_Jqa(c54pP">
+<field name="OP">ADD</field>
+<value name="A">
+<shadow type="math_number" id="$UTbK}`8rj9y|%K2,[Kf">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="@eQO.dZ^Bs$A5`USY`2b">
+<field name="VAR" id="$Nx0[VUV%@r/_@t~t1p;">forward</field>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number" id="thwD:r417W#BmsZfDF4A">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_arithmetic" id="imm.bQpAwm~bbY=U1LmK">
+<field name="OP">ADD</field>
+<value name="A">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="XNJw@_W:?.*`p_MKQKHm">
+<field name="VAR" id="Kx8*Z:;|O{!l;+m[R]n`">strafe</field>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="^)qS5Q9y1Ciu]S;q9So]">
+<field name="VAR" id="x%Q7R/U)U(=sO}:tEUwn">turn</field>
+</block>
+</value>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="K}%qM{!|)#G.%uE5~euF">
+<field name="VAR" id="]WT(;p^GJtqQ?wTfyjI~">Denominator</field>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="R25+/L2Ehv!+V,~cp!E+">
+<field name="VAR" id="D9P1)%J9@[v%=[ex*qcK">SpeedModifier</field>
+</block>
+</value>
+</block>
+</value>
+<next>
+<block type="dcMotor_setDualProperty_Number" id="7Tz?^al$9Y)%JPh!V7:@">
+<field name="PROP">Power</field>
+<field name="IDENTIFIER1">rightFrontAsDcMotor</field>
+<field name="IDENTIFIER2">rightRearAsDcMotor</field>
+<data>{"IDENTIFIER1":"rightFront","IDENTIFIER2":"rightRear"}</data>
+<value name="VALUE1">
+<shadow type="math_number" id="e:YeO,@is!V9irN.TFG1">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_arithmetic" id="n6kwJ(ar/Pehel@eF%PK">
+<field name="OP">MULTIPLY</field>
+<value name="A">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_arithmetic" id="lyHkhAg,mIy}D|{Im#sm">
+<field name="OP">DIVIDE</field>
+<value name="A">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_arithmetic" id="AilmqXQ#AuWiS-8{u{Cl">
+<field name="OP">MINUS</field>
+<value name="A">
+<shadow type="math_number" id="w_{Ka3/6d(0]r$8:z*v`">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="B5fyXH[yTH-;[4|8tzc+">
+<field name="VAR" id="$Nx0[VUV%@r/_@t~t1p;">forward</field>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_arithmetic" id="Ot_D}1C5aXg9N7-}][+H">
+<field name="OP">ADD</field>
+<value name="A">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="x7?cfs~]}b^8oOXX$*)e">
+<field name="VAR" id="Kx8*Z:;|O{!l;+m[R]n`">strafe</field>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="Ri8{3*{,J7t2Yt}tV5-A">
+<field name="VAR" id="x%Q7R/U)U(=sO}:tEUwn">turn</field>
+</block>
+</value>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="FynSGX`0NFSY%-sAz4?m">
+<field name="VAR" id="]WT(;p^GJtqQ?wTfyjI~">Denominator</field>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="E0,FE)Sjb|)jyf43+[=B">
+<field name="VAR" id="D9P1)%J9@[v%=[ex*qcK">SpeedModifier</field>
+</block>
+</value>
+</block>
+</value>
+<value name="VALUE2">
+<shadow type="math_number" id="G*wngldKH9`WiWlDiS`7">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_arithmetic" id="1f/-,pm?d/Fib$;ITg~d">
+<field name="OP">MULTIPLY</field>
+<value name="A">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_arithmetic" id=".)m,.lQJ6QUy5{h7j?xC">
+<field name="OP">DIVIDE</field>
+<value name="A">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_arithmetic" id="9~gdq*~r:px$!Gg%vrm6">
+<field name="OP">ADD</field>
+<value name="A">
+<shadow type="math_number" id="*#P;S1u,3IsL,lgp:9[r">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="13=@ccr/YQqHBSzk}j7;">
+<field name="VAR" id="$Nx0[VUV%@r/_@t~t1p;">forward</field>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="math_arithmetic" id="I2RbJ%(q|T@[q3u.+fQr">
+<field name="OP">MINUS</field>
+<value name="A">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="{{M`TD|aUq}}e,gBG`#t">
+<field name="VAR" id="Kx8*Z:;|O{!l;+m[R]n`">strafe</field>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="{/x:8d#8v(dR+r?1*-z`">
+<field name="VAR" id="x%Q7R/U)U(=sO}:tEUwn">turn</field>
+</block>
+</value>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="i*Lj8~vhsxi7-|X1=(3f">
+<field name="VAR" id="]WT(;p^GJtqQ?wTfyjI~">Denominator</field>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="-l3wU=(iMWn0cU1`-ayW">
+<field name="VAR" id="D9P1)%J9@[v%=[ex*qcK">SpeedModifier</field>
+</block>
+</value>
+</block>
+</value>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+<block type="procedures_defnoreturn" id="$@B+FYC,,:g)y(Kpu^O4" x="822" y="757">
+<field name="NAME">ControllerMappings</field>
+<comment pinned="false" h="80" w="160">Describe this function...</comment>
+<statement name="STACK">
+<block type="comment" id="Jh/;L$n@JuX8AQJDFCul">
+<field name="COMMENT">Map Controls to Variables Here</field>
+<next>
+<block type="comment" id="Vq|KDavh$|]H2{:i3Mc|">
+<field name="COMMENT">Pushing stick forward (y) gives negative values. So we flip here</field>
+<next>
+<block type="variables_set" id="PF.o:^L3s#14A1//f`3#">
+<field name="VAR" id="$Nx0[VUV%@r/_@t~t1p;">forward</field>
+<value name="VALUE">
+<block type="math_single" id="#]y,`b]XN^+qm[P`GWQ=">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number" id="jZPPR?F_Gt{NnLw/tA`X">
+<field name="NUM">9</field>
+</shadow>
+<block type="gamepad_getProperty_Number" id=",%g=%$0yjQqN|.pO.~E|">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">LeftStickY</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+</block>
+</value>
+<next>
+<block type="variables_set" id="xG]^zq484im|O:y%P-5G">
+<field name="VAR" id="x%Q7R/U)U(=sO}:tEUwn">turn</field>
+<value name="VALUE">
+<block type="gamepad_getProperty_Number" id="g+E@Jgz[m-,rn:~f0roL">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">RightStickX</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<next>
+<block type="variables_set" id="zO}zZ]r^BQAOhFf@YREW">
+<field name="VAR" id="Kx8*Z:;|O{!l;+m[R]n`">strafe</field>
+<value name="VALUE">
+<block type="gamepad_getProperty_Number" id="PHLx?F-K8IgtodyO3:qP">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">LeftStickX</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<next>
+<block type="controls_if" id="9g=FO20gtM[1I2,8t*}v">
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id=";,_NC!,E$k(UovscT]^-">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">B</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="comment" id="^c}P5HRVo2f(j8t~,~]N">
+<field name="COMMENT">Shoulder Up. Triangle</field>
+<next>
+<block type="math_change" id="/Ls=p,FBKt?kU}u%29z@">
+<field name="VAR" id="G_eqR?usvv9yGYoqZDi2">shoulderPosition</field>
+<value name="DELTA">
+<shadow type="math_number" id="=[$XS3=;ZRGq/wsCXj%h">
+<field name="NUM">10</field>
+</shadow>
+<block type="math_single" id="Z5?)4)ZHCTa?`8YjWX-.">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number" id="@`^;{-I!o6LWcvual}`6">
+<field name="NUM">15</field>
+</shadow>
+</value>
+</block>
+</value>
+</block>
+</next>
+</block>
+</statement>
+<next>
+<block type="controls_if" id="pVLOAI=yyQN%g%k5j1o6">
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id="K9RDDmV9/AFSu3zfbstZ">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">X</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="comment" id="mpqNJ|K}2IGkVy8PCpcx">
+<field name="COMMENT">Shoulder Down. X</field>
+<next>
+<block type="math_change" id="wqy#/`L)5(gH%7Ts{y7;">
+<field name="VAR" id="G_eqR?usvv9yGYoqZDi2">shoulderPosition</field>
+<value name="DELTA">
+<shadow type="math_number" id="ITeWmZ,ddO[ykDukF9Gj">
+<field name="NUM">15</field>
+</shadow>
+</value>
+</block>
+</next>
+</block>
+</statement>
+<next>
+<block type="controls_if" id="Pl~Z:sGm(_G+%=$w5R:E">
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id="YwmZ,#]Bzl5y]?eL@@xO">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">A</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="comment" id="J;26[94m~y*CA)Q$;[`=">
+<field name="COMMENT">Elbow Up. Square</field>
+<next>
+<block type="math_change" id="U-(!M8yXKt,Mz!O5Zxqx">
+<field name="VAR" id="{HJ;`R[:z%|/#2`BEGoO">elbowPosition</field>
+<value name="DELTA">
+<shadow type="math_number" id="{LX})O8)bli+zwW~^l~[">
+<field name="NUM">5</field>
+</shadow>
+</value>
+</block>
+</next>
+</block>
+</statement>
+<next>
+<block type="controls_if" id="Gu5=;v1R~gOmTlnCjj~P">
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id="IU5pp;BQcM+=6,I5XkW@">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">Y</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="comment" id="4B,NQvJ-#,#iuW%bfP2+">
+<field name="COMMENT">Elbow Down. Circle</field>
+<next>
+<block type="math_change" id="CEC%m~,0D6v|4DJ_}m:^">
+<field name="VAR" id="{HJ;`R[:z%|/#2`BEGoO">elbowPosition</field>
+<value name="DELTA">
+<shadow type="math_number">
+<field name="NUM">10</field>
+</shadow>
+<block type="math_single" id="@Nn5uct.iIz]%g3Wra8y">
+<field name="OP">NEG</field>
+<value name="NUM">
+<shadow type="math_number" id="~C6}uSmyC:2!?1)#Eux/">
+<field name="NUM">5</field>
+</shadow>
+</value>
+</block>
+</value>
+</block>
+</next>
+</block>
+</statement>
+<next>
+<block type="controls_if" id="nb5A]ryFf3$kl.K68e2o">
+<mutation else="1"/>
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id="OeOUhC#gJ;v^IZ?o:s@z">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">RightBumper</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="variables_set" id="}|~0+|CGva!3yNZs#5c.">
+<field name="VAR" id="D9P1)%J9@[v%=[ex*qcK">SpeedModifier</field>
+<value name="VALUE">
+<block type="variables_get" id="f%o{:yIfqW@ntvG@v`aZ">
+<field name="VAR" id="jxSI9fur/Ia5EDEB_LvB">moveSprintSpeed</field>
+</block>
+</value>
+</block>
+</statement>
+<statement name="ELSE">
+<block type="variables_set" id="yDJ~]xLWn^5m5dEF^q2W">
+<field name="VAR" id="D9P1)%J9@[v%=[ex*qcK">SpeedModifier</field>
+<value name="VALUE">
+<block type="variables_get" id="a,bEK]G}RU.WAjP$#f!S">
+<field name="VAR" id="c^tUZlt==3GrXs.q;1an">moveSpeed</field>
+</block>
+</value>
+</block>
+</statement>
+<next>
+<block type="controls_if" id="@U{_/!8h33yDqhWitWF*">
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id="0$Y1CUMiR;%gRWlQ{1nc">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">DpadLeft</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="servo_setProperty_Number" id="dz2Z0rjx2?cY2FHDOpg|">
+<field name="IDENTIFIER">gripAsServo</field>
+<field name="PROP">Position</field>
+<data>{"IDENTIFIER":"grip"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="e#yLPqDijYFH1r{Iz:^,">
+<field name="NUM">0.5</field>
+</shadow>
+<block type="variables_get" id="C,Fg4ded~sN9$u]THfBs">
+<field name="VAR" id="_qC}8y+Eg@~`Fms}%%N8">gripperLeftOpenPosition</field>
+</block>
+</value>
+<next>
+<block type="servo_setProperty_Number" id="Fq7gDRyn.=G}%`xj4%9%">
+<field name="IDENTIFIER">grip2AsServo</field>
+<field name="PROP">Position</field>
+<data>{"IDENTIFIER":"grip2"}</data>
+<value name="VALUE">
+<shadow type="math_number">
+<field name="NUM">0</field>
+</shadow>
+<block type="variables_get" id="!KM;j=l]8Gnx*V~9~1MB">
+<field name="VAR" id="7e*6(NqDm|$Js:4XVxu*">gripperRightOpenPosition</field>
+</block>
+</value>
+</block>
+</next>
+</block>
+</statement>
+<next>
+<block type="controls_if" id="bgD_U`,mQLABEE]Y9*TG">
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id="[t*;oDW6G:`;2k;zh/p3">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">DpadRight</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="servo_setProperty_Number" id="(F:66f2FzLtmVTrY=iH]">
+<field name="IDENTIFIER">gripAsServo</field>
+<field name="PROP">Position</field>
+<data>{"IDENTIFIER":"grip"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="/po7]*u2!+Go)eu$1MHX">
+<field name="NUM">0</field>
+</shadow>
+<block type="variables_get" id="!+2ODOO?FZ^J-v|u{K2z">
+<field name="VAR" id="x{n]SILE=_w)LBGE02nl">gripperLeftClosedPosition</field>
+</block>
+</value>
+<next>
+<block type="servo_setProperty_Number" id="|bt5ToN`17_h]f.B.oOh">
+<field name="IDENTIFIER">grip2AsServo</field>
+<field name="PROP">Position</field>
+<data>{"IDENTIFIER":"grip2"}</data>
+<value name="VALUE">
+<shadow type="math_number">
+<field name="NUM">0</field>
+</shadow>
+<block type="variables_get" id="=kF!2#@#lYtXCEYTs8qs">
+<field name="VAR" id="qayR1k9CylcEWlRrLw8,">gripperRightClosedPosition</field>
+</block>
+</value>
+</block>
+</next>
+</block>
+</statement>
+<next>
+<block type="controls_if" id="%UdV:m!EPJ26,(zr91#E">
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id="XVb=0Agn5$YWOfc}D9SL">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">DpadUp</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="servo_setProperty_Number" id="5x:=+xs|o/e,(B99co=j">
+<field name="IDENTIFIER">gripRotateAsServo</field>
+<field name="PROP">Position</field>
+<data>{"IDENTIFIER":"gripRotate"}</data>
+<value name="VALUE">
+<shadow type="math_number">
+<field name="NUM">0</field>
+</shadow>
+<block type="variables_get" id="2qQO_kI@0#dF*Q`I+%Zm">
+<field name="VAR" id="?**n|b3qDdG9P~DHqw=S">gripperWristPickupPosition</field>
+</block>
+</value>
+</block>
+</statement>
+<next>
+<block type="controls_if" id="}.hD@0}QJI5;J.tTLKBZ">
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id="TOe;D|@)uew$E[F5QF6@">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">DpadDown</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="servo_setProperty_Number" id="LJxLlNI}cY#7f/J|h@XP">
+<field name="IDENTIFIER">gripRotateAsServo</field>
+<field name="PROP">Position</field>
+<data>{"IDENTIFIER":"gripRotate"}</data>
+<value name="VALUE">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="M9C~,466b9B#3%3:F;4Y">
+<field name="VAR" id="8VE_=e9(xNN}z0_+Mlrp">gripperWristGoalPosition</field>
+</block>
+</value>
+</block>
+</statement>
+<next>
+<block type="controls_if" id="7M$|D{9vB)kM)ba3Jek(">
+<mutation else="1"/>
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id=":nnB8BxdJ19z:}q!]N$`">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">Options</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="servo_setProperty_Number" id="]*hr}JrcV0@I5VpFxLQu">
+<field name="IDENTIFIER">droneLaunchAsServo</field>
+<field name="PROP">Position</field>
+<data>{"IDENTIFIER":"droneLaunch"}</data>
+<value name="VALUE">
+<shadow type="math_number">
+<field name="NUM">0</field>
+</shadow>
+<block type="variables_get" id="]}O5zC?.#h[G$%UgB+^Q">
+<field name="VAR" id="+ZB$1*#UYT+tOG-e1(Vw">droneLaunchPosition</field>
+</block>
+</value>
+</block>
+</statement>
+<statement name="ELSE">
+<block type="servo_setProperty_Number" id="T^}gImFs0{eBG)Srh~-g">
+<field name="IDENTIFIER">droneLaunchAsServo</field>
+<field name="PROP">Position</field>
+<data>{"IDENTIFIER":"droneLaunch"}</data>
+<value name="VALUE">
+<shadow type="math_number">
+<field name="NUM">0</field>
+</shadow>
+<block type="variables_get" id="n$0X?|U:c9A6VUNn5OzL">
+<field name="VAR" id="0,OP)0Gb[;Nb1n,sNC5X">droneLoadPosition</field>
+</block>
+</value>
+</block>
+</statement>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+<block type="procedures_defnoreturn" id=":c|AZcWmWSlr,QNqdQWw" x="1523" y="885">
+<field name="NAME">ArmControl</field>
+<comment pinned="false" h="80" w="160">Describe this function...</comment>
+<statement name="STACK">
+<block type="dcMotor_setProperty_Number" id="pGz2dhZi}C1{E,z}2g#a">
+<field name="IDENTIFIER">armShoulderAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"armShoulder"}</data>
+<value name="VALUE">
+<shadow type="math_number">
+<field name="NUM">0</field>
+</shadow>
+<block type="variables_get" id="~er@)B].n=I}i9I`?$u|">
+<field name="VAR" id="wgBz75Q;NoAU8oGhST]H">shoulderSpeed</field>
+</block>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="BI_4.$}wys=bl/ctRfTb">
+<field name="IDENTIFIER">armElbowAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"armElbow"}</data>
+<value name="VALUE">
+<shadow type="math_number">
+<field name="NUM">0</field>
+</shadow>
+<block type="variables_get" id="*_sMflP]d[#I1i95Rk+c">
+<field name="VAR" id="]MWOVS{2#BEP|aoEoh^8">elbowSpeed</field>
+</block>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="D1cgdrno);=Dc:)q^ewD">
+<field name="IDENTIFIER">armElbowAsDcMotor</field>
+<field name="PROP">TargetPosition</field>
+<data>{"IDENTIFIER":"armElbow"}</data>
+<value name="VALUE">
+<shadow type="math_number">
+<field name="NUM">0</field>
+</shadow>
+<block type="variables_get" id=",`g`K#sjc{G9!cIS.HpD">
+<field name="VAR" id="{HJ;`R[:z%|/#2`BEGoO">elbowPosition</field>
+</block>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="Qz`Qxm:2:ApFNB-,DIwO">
+<field name="IDENTIFIER">armShoulderAsDcMotor</field>
+<field name="PROP">TargetPosition</field>
+<data>{"IDENTIFIER":"armShoulder"}</data>
+<value name="VALUE">
+<shadow type="math_number">
+<field name="NUM">0</field>
+</shadow>
+<block type="variables_get" id="n7H(QaxfJv-#clTj~(cD">
+<field name="VAR" id="G_eqR?usvv9yGYoqZDi2">shoulderPosition</field>
+</block>
+</value>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+<block type="procedures_defnoreturn" id="`MjA.smDe)qZ5Q~!k)O@" x="1496" y="1131">
+<field name="NAME">PresetPoses</field>
+<comment pinned="false" h="80" w="160">Describe this function...</comment>
+<statement name="STACK">
+<block type="comment" id="`bh}WNizYud$|Sj$xFnT">
+<field name="COMMENT">This section is for predefined poses</field>
+<next>
+<block type="controls_if" id="LPIyXuT1tD8*Q68UqQQ$">
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id="e=Xf5WHTU7c)Sj1$RmRX">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">LeftBumper</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="comment" id="RU.WW%SVuZ_e8is.Clk%">
+<field name="COMMENT">Starting Compact Pose</field>
+<next>
+<block type="variables_set" id="MN^4+G~#$*$J@g!juNJ5">
+<field name="VAR" id="=FAqY`p~.-v3.UiD7p=+">isInPickupPose</field>
+<value name="VALUE">
+<block type="logic_boolean" id="%=M7p:dXW#c3*j=#x|^h">
+<field name="BOOL">FALSE</field>
+</block>
+</value>
+<next>
+<block type="variables_set" id="n}9%%5(~)91gwqT?!Ab3">
+<field name="VAR" id="~}fspl}+613^)C+2hJt$">isInGoalPose</field>
+<value name="VALUE">
+<block type="logic_boolean" id="0B@lb*g6i/IMl=KEIESu">
+<field name="BOOL">FALSE</field>
+</block>
+</value>
+<next>
+<block type="servo_setProperty_Number" id="y]X})jOOx.AB75Jf=DXD">
+<field name="IDENTIFIER">gripAsServo</field>
+<field name="PROP">Position</field>
+<data>{"IDENTIFIER":"grip"}</data>
+<value name="VALUE">
+<shadow type="math_number">
+<field name="NUM">0.5</field>
+</shadow>
+<block type="variables_get" id="f[|`q9Q_YEHh=0l=h8s;">
+<field name="VAR" id="x{n]SILE=_w)LBGE02nl">gripperLeftClosedPosition</field>
+</block>
+</value>
+<next>
+<block type="variables_set" id="izVGXF0[M.r1suJ}4;0]">
+<field name="VAR" id="{HJ;`R[:z%|/#2`BEGoO">elbowPosition</field>
+<value name="VALUE">
+<block type="variables_get" id="00O55za|2XiNRE!ihLrp">
+<field name="VAR" id=")v2?LS^yk:^:z=#h*vOV">elbowStartingPosition</field>
+</block>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="QloqKdjo)grA/x|l@/LS">
+<field name="IDENTIFIER">armElbowAsDcMotor</field>
+<field name="PROP">TargetPosition</field>
+<data>{"IDENTIFIER":"armElbow"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="[tZI#c2qJy;j.s#iOo5%">
+<field name="NUM">-1000</field>
+</shadow>
+<block type="variables_get" id="i6!q=J)zz$H^LCT)=1uZ">
+<field name="VAR" id=")v2?LS^yk:^:z=#h*vOV">elbowStartingPosition</field>
+</block>
+</value>
+<next>
+<block type="variables_set" id="jvhpH#U(SH?bzq]H.9_X">
+<field name="VAR" id="G_eqR?usvv9yGYoqZDi2">shoulderPosition</field>
+<value name="VALUE">
+<block type="variables_get" id="0|:ex!rNXLE_oLqWZCHU">
+<field name="VAR" id="U;EZ0d+Da$v9q*ebWOUr">shoulderStartingPosition</field>
+</block>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="vmHh;5hbVkAg?X!3X%Dr">
+<field name="IDENTIFIER">armShoulderAsDcMotor</field>
+<field name="PROP">TargetPosition</field>
+<data>{"IDENTIFIER":"armShoulder"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="KQsm5R@b;Uxg_jk10rQo">
+<field name="NUM">-1000</field>
+</shadow>
+<block type="variables_get" id="b{~FNd[E|4dqN~,/H2XW">
+<field name="VAR" id="U;EZ0d+Da$v9q*ebWOUr">shoulderStartingPosition</field>
+</block>
+</value>
+<next>
+<block type="servo_setProperty_Number" id="+dW{$#Cr3Ls,Ch#iMZ]q">
+<field name="IDENTIFIER">gripRotateAsServo</field>
+<field name="PROP">Position</field>
+<data>{"IDENTIFIER":"gripRotate"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="[nErpJtAP-}4}/H+Ryeq">
+<field name="NUM">0.35</field>
+</shadow>
+<block type="variables_get" id="(9fvFPGdm#D{Cz?:=IX;">
+<field name="VAR" id="Ny!=tp;79w/mZ8rNSPX]">gripperWristFlatPosition</field>
+</block>
+</value>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+<next>
+<block type="controls_if" id="(7lPZtEVzt7$~.n$nEUc">
+<value name="IF0">
+<block type="logic_compare" id=")1cI354vct~9CQ_eb?SG">
+<field name="OP">GT</field>
+<value name="A">
+<block type="gamepad_getProperty_Number" id="J:_=O{6BAz6-e#}:8;CE">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">LeftTrigger</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="e,`,QQJ1By#9,8e=Vr^Z">
+<field name="NUM">0.8</field>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO0">
+<block type="comment" id="TahID=?D{/^}|~jEp7[9">
+<field name="COMMENT">Floor Pickup Pose</field>
+<next>
+<block type="variables_set" id="k0{F(hZoC+C`*~r`0iL*">
+<field name="VAR" id="=FAqY`p~.-v3.UiD7p=+">isInPickupPose</field>
+<value name="VALUE">
+<block type="logic_boolean" id="S{1a6SkWc|rxUQ3}CX*n">
+<field name="BOOL">TRUE</field>
+</block>
+</value>
+<next>
+<block type="variables_set" id="3eEejOEy)5^4;SKi:uiG">
+<field name="VAR" id="~}fspl}+613^)C+2hJt$">isInGoalPose</field>
+<value name="VALUE">
+<block type="logic_boolean" id="svr(t0Ixv$Q|.o3Ff2w)">
+<field name="BOOL">FALSE</field>
+</block>
+</value>
+<next>
+<block type="variables_set" id="=X+%:f5]|DM;6g-[LC)T">
+<field name="VAR" id="{HJ;`R[:z%|/#2`BEGoO">elbowPosition</field>
+<value name="VALUE">
+<block type="math_arithmetic" id="YbyYoua.@PFzv?D@lo)w">
+<field name="OP">ADD</field>
+<value name="A">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="2QIPNtJNA8_w^CYIa(5v">
+<field name="VAR" id=")v2?LS^yk:^:z=#h*vOV">elbowStartingPosition</field>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="*Hal-vYz6.@#$Jw[q!LK">
+<field name="VAR" id="An{1o.3c{5O(l^A7%=GE">elbowFloorPositionOffset</field>
+</block>
+</value>
+</block>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="kCH1t4O%eZ~N}.JA1|na">
+<field name="IDENTIFIER">armElbowAsDcMotor</field>
+<field name="PROP">TargetPosition</field>
+<data>{"IDENTIFIER":"armElbow"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="LnU;XVzngO3$[+a)wQN4">
+<field name="NUM">-500</field>
+</shadow>
+<block type="variables_get" id="!q6}t$YW]aIcWZf^i@ti">
+<field name="VAR" id="{HJ;`R[:z%|/#2`BEGoO">elbowPosition</field>
+</block>
+</value>
+<next>
+<block type="variables_set" id="l-2H)PhjhL7o=49)8RX!">
+<field name="VAR" id="G_eqR?usvv9yGYoqZDi2">shoulderPosition</field>
+<value name="VALUE">
+<block type="variables_get" id=";0q$B)TK#K@ST/K[G:d-">
+<field name="VAR" id="U;EZ0d+Da$v9q*ebWOUr">shoulderStartingPosition</field>
+</block>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="=Je;Z~DQ|L+,*M~/bvB}">
+<field name="IDENTIFIER">armShoulderAsDcMotor</field>
+<field name="PROP">TargetPosition</field>
+<data>{"IDENTIFIER":"armShoulder"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="F0{8n/vKOjAtywM+|6Dc">
+<field name="NUM">-200</field>
+</shadow>
+<block type="variables_get" id="n-kS)*CfH!%L*ClrK#V`">
+<field name="VAR" id="U;EZ0d+Da$v9q*ebWOUr">shoulderStartingPosition</field>
+</block>
+</value>
+<next>
+<block type="servo_setProperty_Number" id="itd=}EL:r$q;.n@~Sj`g">
+<field name="IDENTIFIER">gripAsServo</field>
+<field name="PROP">Position</field>
+<data>{"IDENTIFIER":"grip"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="cJ!Fy$.j8u!hlA(uU%J*">
+<field name="NUM">0.5</field>
+</shadow>
+<block type="variables_get" id="XctGP;Su[OOfcz(L_n3,">
+<field name="VAR" id="_qC}8y+Eg@~`Fms}%%N8">gripperLeftOpenPosition</field>
+</block>
+</value>
+<next>
+<block type="servo_setProperty_Number" id="Rwqb58NoNpJtU:Nk@?AQ">
+<field name="IDENTIFIER">gripRotateAsServo</field>
+<field name="PROP">Position</field>
+<data>{"IDENTIFIER":"gripRotate"}</data>
+<value name="VALUE">
+<shadow type="math_number">
+<field name="NUM">0.35</field>
+</shadow>
+<block type="variables_get" id="Mv=9iH3O+GR#v[eq=jEd">
+<field name="VAR" id="?**n|b3qDdG9P~DHqw=S">gripperWristPickupPosition</field>
+</block>
+</value>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+<next>
+<block type="controls_if" id="DWHZXX+SNQGFVKTFQ@SF">
+<value name="IF0">
+<block type="logic_compare" id="?FJSGdjag#[=utg6+Q4W">
+<field name="OP">GT</field>
+<value name="A">
+<block type="gamepad_getProperty_Number" id="n[gZe@qW8x7@gUWG!OQ5">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">RightTrigger</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id=")KNQYRKLly3nBLBO:dW5">
+<field name="NUM">0.8</field>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO0">
+<block type="comment" id=";@5YsdOLZ.dl~v=|y:RD">
+<field name="COMMENT">Goal Dropoff Pose</field>
+<next>
+<block type="variables_set" id="hk)BUtIzssL0wdh^W4wr">
+<field name="VAR" id="~}fspl}+613^)C+2hJt$">isInGoalPose</field>
+<value name="VALUE">
+<block type="logic_boolean" id="oYv#2-H_4h#pI~^scY+H">
+<field name="BOOL">TRUE</field>
+</block>
+</value>
+<next>
+<block type="variables_set" id="hWLZGuX!.yw!]W~bX,IY">
+<field name="VAR" id="=FAqY`p~.-v3.UiD7p=+">isInPickupPose</field>
+<value name="VALUE">
+<block type="logic_boolean" id="X7JpNoClW:|XgTRO2xUV">
+<field name="BOOL">FALSE</field>
+</block>
+</value>
+<next>
+<block type="variables_set" id="W;{+|Y-`K1L#,EdRw*-0">
+<field name="VAR" id="{HJ;`R[:z%|/#2`BEGoO">elbowPosition</field>
+<value name="VALUE">
+<block type="math_arithmetic" id="btDQ$15mLqHK5Tt;5rl(">
+<field name="OP">ADD</field>
+<value name="A">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="Yy0#qf=25B%juH.!xEN(">
+<field name="VAR" id=")v2?LS^yk:^:z=#h*vOV">elbowStartingPosition</field>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="Sn;(wIpIZ[V5[QMvpB+p">
+<field name="VAR" id="S[NPdn@B6.8VFg31%||Y">elbowGoalPositionOffset</field>
+</block>
+</value>
+</block>
+</value>
+<next>
+<block type="variables_set" id="[I-d)zkoQL5aJ^0c,B?J">
+<field name="VAR" id="G_eqR?usvv9yGYoqZDi2">shoulderPosition</field>
+<value name="VALUE">
+<block type="math_arithmetic" id="ddnd$RECPs:7;)nwNOFg">
+<field name="OP">ADD</field>
+<value name="A">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="YuX=VW8.(4b=6hpTl9Xm">
+<field name="VAR" id="U;EZ0d+Da$v9q*ebWOUr">shoulderStartingPosition</field>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id=")-RR^/*KV!``V`/Nh4{:">
+<field name="VAR" id="^83|zUmuX:cG3hOX=|Z1">shoulderGoalPositionOffset</field>
+</block>
+</value>
+</block>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="k6FmMVpnhA@,@@cf%0J|">
+<field name="IDENTIFIER">armElbowAsDcMotor</field>
+<field name="PROP">TargetPosition</field>
+<data>{"IDENTIFIER":"armElbow"}</data>
+<value name="VALUE">
+<shadow type="math_number">
+<field name="NUM">-500</field>
+</shadow>
+<block type="variables_get" id="1W)BkL7FW`mKcI*Zs!:?">
+<field name="VAR" id="{HJ;`R[:z%|/#2`BEGoO">elbowPosition</field>
+</block>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="GN+Ps,@san1tH,8]zC_P">
+<field name="IDENTIFIER">armShoulderAsDcMotor</field>
+<field name="PROP">TargetPosition</field>
+<data>{"IDENTIFIER":"armShoulder"}</data>
+<value name="VALUE">
+<shadow type="math_number">
+<field name="NUM">-200</field>
+</shadow>
+<block type="variables_get" id="5FnvwZlq+QGd/sK)D1+|">
+<field name="VAR" id="G_eqR?usvv9yGYoqZDi2">shoulderPosition</field>
+</block>
+</value>
+<next>
+<block type="linearOpMode_sleep_Number" id="-+[|ap()QWI#?.hQZj7[">
+<value name="MILLISECONDS">
+<shadow type="math_number" id="($_v!=C,$~RISEc#Pvn9">
+<field name="NUM">300</field>
+</shadow>
+</value>
+<next>
+<block type="servo_setProperty_Number" id="ZjKd1?00xEEGyy24ruoo">
+<field name="IDENTIFIER">gripRotateAsServo</field>
+<field name="PROP">Position</field>
+<data>{"IDENTIFIER":"gripRotate"}</data>
+<value name="VALUE">
+<shadow type="math_number">
+<field name="NUM">0.35</field>
+</shadow>
+<block type="variables_get" id=":7|M!}jGQ/s+7j]+Ss`X">
+<field name="VAR" id="8VE_=e9(xNN}z0_+Mlrp">gripperWristGoalPosition</field>
+</block>
+</value>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+<next>
+<block type="controls_if" id="u^`b6Eo5B5rcoMg{bxm+">
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id="az/E%O*iSA9koRX~SZtG">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">Share</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="comment" id="uiBjm1={dS/^Muz}!]/Z">
+<field name="COMMENT">Hang Pose</field>
+<next>
+<block type="variables_set" id="CKpwO0sfE25rZ=kB.l^4">
+<field name="VAR" id="~}fspl}+613^)C+2hJt$">isInGoalPose</field>
+<value name="VALUE">
+<block type="logic_boolean" id="6stw~mXM%UYZV}:/V1nG">
+<field name="BOOL">FALSE</field>
+</block>
+</value>
+<next>
+<block type="variables_set" id="d)4,v)Kh(s;qK^LUB^/k">
+<field name="VAR" id="=FAqY`p~.-v3.UiD7p=+">isInPickupPose</field>
+<value name="VALUE">
+<block type="logic_boolean" id="$.7q-|*JT~cCVF`0NBo!">
+<field name="BOOL">FALSE</field>
+</block>
+</value>
+<next>
+<block type="variables_set" id="3{{GbhO]+tzs;}5+;wjF">
+<field name="VAR" id="{HJ;`R[:z%|/#2`BEGoO">elbowPosition</field>
+<value name="VALUE">
+<block type="math_arithmetic" id="/wwHOZ8=W8viD*M)?(Hz">
+<field name="OP">ADD</field>
+<value name="A">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="wr61tpMx#C;`70tP[2TK">
+<field name="VAR" id=")v2?LS^yk:^:z=#h*vOV">elbowStartingPosition</field>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number" id="aqYj!wkw%kq:}hI+jp$v">
+<field name="NUM">-140</field>
+</shadow>
+</value>
+</block>
+</value>
+<next>
+<block type="variables_set" id="+.yKy3y%q}*-3YU9x%MP">
+<field name="VAR" id="G_eqR?usvv9yGYoqZDi2">shoulderPosition</field>
+<value name="VALUE">
+<block type="math_arithmetic" id="X[,/-k(l`l%)Z,$JIUx7">
+<field name="OP">ADD</field>
+<value name="A">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="uy~=S.f9/~{PhZJDv@{T">
+<field name="VAR" id="U;EZ0d+Da$v9q*ebWOUr">shoulderStartingPosition</field>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="9HsAunxSSzAWxBQpo=v,">
+<field name="VAR" id="^83|zUmuX:cG3hOX=|Z1">shoulderGoalPositionOffset</field>
+</block>
+</value>
+</block>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="09}DIyJvj{EDq_p9t*R,">
+<field name="IDENTIFIER">armElbowAsDcMotor</field>
+<field name="PROP">TargetPosition</field>
+<data>{"IDENTIFIER":"armElbow"}</data>
+<value name="VALUE">
+<shadow type="math_number">
+<field name="NUM">-500</field>
+</shadow>
+<block type="variables_get" id="cl*W[/280!byicH7D6lY">
+<field name="VAR" id="{HJ;`R[:z%|/#2`BEGoO">elbowPosition</field>
+</block>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="%s`L-^;9QTFFT.eA8Zs}">
+<field name="IDENTIFIER">armShoulderAsDcMotor</field>
+<field name="PROP">TargetPosition</field>
+<data>{"IDENTIFIER":"armShoulder"}</data>
+<value name="VALUE">
+<shadow type="math_number">
+<field name="NUM">-200</field>
+</shadow>
+<block type="variables_get" id="(uck7pL|WU`Bc/=/KaI;">
+<field name="VAR" id="G_eqR?usvv9yGYoqZDi2">shoulderPosition</field>
+</block>
+</value>
+<next>
+<block type="linearOpMode_sleep_Number" id="FCG~7Te]S()9F*/{CpGQ">
+<value name="MILLISECONDS">
+<shadow type="math_number" id="Vr*b!^:W~YSW.9tAx$y{">
+<field name="NUM">300</field>
+</shadow>
+</value>
+<next>
+<block type="servo_setProperty_Number" id="M~#i*bdz=s.U9ZJ:6k:+">
+<field name="IDENTIFIER">gripRotateAsServo</field>
+<field name="PROP">Position</field>
+<data>{"IDENTIFIER":"gripRotate"}</data>
+<value name="VALUE">
+<shadow type="math_number">
+<field name="NUM">0.35</field>
+</shadow>
+<block type="variables_get" id="5-@9,/fFGt5mSsHW/t2D">
+<field name="VAR" id="8VE_=e9(xNN}z0_+Mlrp">gripperWristGoalPosition</field>
+</block>
+</value>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</xml>
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<Extra>
+<OpModeMeta flavor="TELEOP" group="" autoTransition="" />
+<Enabled value="true" />
+</Extra>
